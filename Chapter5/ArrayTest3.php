@@ -21,9 +21,22 @@ $state["Ohio"] = "March 1,1803";
 $founded = array_search("March 1,1803", $state);
 if ($founded) {
     printf("%s was founded on %s", $founded, $state[$founded]);
-
 } else {
     echo "can not find this value";
 }
 
 echo "<br/>";
+
+$state["Delaware"] = "December 7 ,1787";
+$state["Pennsylvania"] = "December 12,1787";
+$state["Ohio"] = "March 1,1803";
+$keys = array_keys($state);
+print_r($keys);
+
+echo "<br/>";
+
+$state["Delaware"] = "December 7 ,1787";
+$state["Pennsylvania"] = "December 12,1787";
+$state["Ohio"] = "March 1,1803";
+$values = array_values($state);
+print_r($values);
