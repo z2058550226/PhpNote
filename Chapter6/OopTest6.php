@@ -6,6 +6,18 @@
  * Time: 8:50
  */
 
+function __autoload($className)
+{
+    //此处使用相对路径
+    require_once("/$className.class.php");
+}
+
+$person = new Person();
+
+$person->name = "suika";
+
+echo $person->name . "<br/>";
+
 class Visitor
 {
     private static $visitors = 0;
@@ -21,6 +33,7 @@ class Visitor
     }
 }
 
+
 $visits = new Visitor();
 
 echo Visitor::getVisitors() . "<br/>";//1
@@ -28,4 +41,8 @@ echo Visitor::getVisitors() . "<br/>";//1
 $visits2 = new Visitor();
 
 echo Visitor::getVisitors() . "<br/>";//2
+
+if (is_a($visits, "Visitor")) {
+    echo "\$visits is a Visitor" . "<br/>";
+}
 
