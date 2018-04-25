@@ -39,3 +39,8 @@ class MathFunctions
 }
 
 echo MathFunctions::EULER . "<br/>";//0.5772156649
+
+
+
+
+
