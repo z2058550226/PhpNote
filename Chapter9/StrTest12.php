@@ -83,3 +83,8 @@ talk;
 foreach ($buzzwords as $bw) {
     echo "The word $bw appears " . substr_count($talk, $bw) . " time(s)" . "<br/>";
 }
+
+$ccnumber = "12345678911119999";
+echo substr_replace($ccnumber, "***********", 0, 12);//***********19999
+
+
