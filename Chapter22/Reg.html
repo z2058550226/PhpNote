@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+
+<script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+    $('document').ready(function () {
+        $('#check_un').click(function (e) {
+            //检索用户名字段值
+            var username = $('#username').val();
+
+            alert("1");
+
+            //用jQuery的$.get函数发送一个GET请求到JqueryTest1.php,判断是否在数据库（伪）中
+            $.get(
+                "JqueryTest1.php",
+                {username: username},
+                function (response) {
+                    if (response.status == "FALSE") {
+                        $('#valid').html("Not available!");
+                    } else {
+                        $('#valid').html("Available!");
+                    }
+                },
+                "json"
+            );
+
+            e.preventDefault();
+        });
+
+        $('#btn1').onclick = function (ev) {
+            alert("1");
+            console.error("aaaa");
+        }
+    });
+</script>
+
+<body>
+<button id="btn1"> 哈哈</button>
+<br/>
+
+<form id="form_register" method="get" action="RegisterForm.php">
+
+    <p>
+        Provide your email address <br/>
+        <input type="text" name="email" value=""/>
+    </p>
+
+    <p>
+        Choose a username<br/>
+        <input type="text" id="username" value="" name="username"/>
+        <button class="button" id="check_un">Check Username</button>
+        <br/>
+
+        <span id="valid"></span>
+    </p>
+
+    <p>
+        input your password<br/>
+        <input type="password" id="psw1" value=""/><br/>
+        <input type="password" id="psw2" value=""/>
+    </p>
+
+    <p>
+        <input type="submit" name="submit" value="Register"/>
+    </p>
+
+</form>
+</body>
+</html>
