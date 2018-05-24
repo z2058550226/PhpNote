@@ -15,5 +15,5 @@ try {
     $test = array();
     echo $test[2];
 } catch (Exception $e) {
-    echo "Error (File: " . $e->getFile() . ", line " . $e->getLine() . "):" . $e->getMessage();//Error (File: D:\phpcode\suikajy\Chapter8\ExcTest2.php, line 13):Could not open the file!
+    echo "Error (File: " . $e->getFile() . ", line " . $e->getLine() . "):" . $e->getMessage();//Error (File: D:\phpcode\suikajy\Chapter8_Exception\ExcTest2.php, line 13):Could not open the file!
 }

@@ -6,4 +6,4 @@
  * Time: 14:18
  */
 
-header("Location: http://192.168.1.30/Chapter22/Reg.html");
+header("Location: http://192.168.1.30/Chapter22_Jquery_Ajax/Reg.html");

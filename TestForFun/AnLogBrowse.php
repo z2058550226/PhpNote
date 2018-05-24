@@ -30,7 +30,6 @@ while ($rows = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
     echo "<tr><td>{$rows['id']}</td>";
     echo "<td>{$rows['log']}</td>";
     echo "<td>{$rows['tag']}</td>";
-
     echo "<td>{$rows['create_time']}</td></tr>";
 }
 
