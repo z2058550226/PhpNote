@@ -46,3 +46,12 @@ echo "<br/>";
 $a = 1;
 $b = 0.997;
 echo bcsub($a, $b, 5);
+
+?>
+
+<script type="text/javascript">
+
+    function fun(base64) {
+        alert(base64);
+    }
+</script>

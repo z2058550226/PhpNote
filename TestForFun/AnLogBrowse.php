@@ -19,7 +19,7 @@ echo "<tr>
     <th>time</th>
 </tr>";
 
-$sql = 'SELECT * from android_log';
+$sql = 'SELECT * from android_log order by id desc';
 $result = mysqli_query($conn, $sql);
 
 if (!$result) {

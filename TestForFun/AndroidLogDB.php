@@ -27,7 +27,7 @@ if (isset($_POST['action'])) {
                 $log = $_POST['log'];
                 $tag = isset($_POST['tag']) ? $_POST['tag'] : 'suikajy';
                 $time = isset($_POST['time']) ? $_POST['time'] : time();
-                $sql = "INSERT INTO `zjy`.`android_log` (`log`, `tag`, `create_time`) VALUES ('{$_POST['log']}', 'suikajy', '$time')";
+                $sql = "INSERT INTO android_log (log, tag, create_time) VALUES ('$log', '$tag', '$time')";
                 $result = mysqli_query($conn, $sql);
                 if (!$result) {
                     $jsonArray['status'] = 0;
@@ -46,7 +46,7 @@ if (isset($_POST['action'])) {
             break;
         case 'query_all_log':
             $page = isset($_POST['page']) ? $_POST['page'] : 1;
-            $sql = 'SELECT * from android_log limit ' . ($page - 1) * ITEM_NUM_OP . ',' . ITEM_NUM_OP;
+            $sql = 'SELECT * from android_log order by id desc limit ' . ($page - 1) * ITEM_NUM_OP . ',' . ITEM_NUM_OP;
             $result = mysqli_query($conn, $sql);
             if (!$result) {
                 $jsonArray['status'] = 0;
