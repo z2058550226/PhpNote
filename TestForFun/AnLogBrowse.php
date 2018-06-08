@@ -10,7 +10,7 @@ require_once "DBConn.inc.php";
 
 $conn = connectDB();
 
-echo "<table width='50%' align='center' border='1'>";
+echo "<table width='100%' align='center' border='1'>";
 
 echo "<tr>
     <th>ID</th>
@@ -28,7 +28,7 @@ if (!$result) {
 
 while ($rows = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
     echo "<tr><td>{$rows['id']}</td>";
-    echo "<td>{$rows['log']}</td>";
+    echo "<td style='width: auto;word-wrap:break-word;word-break:break-all;'>{$rows['log']}</td>";
     echo "<td>{$rows['tag']}</td>";
     echo "<td>{$rows['create_time']}</td></tr>";
 }

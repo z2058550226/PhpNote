@@ -47,11 +47,22 @@ $a = 1;
 $b = 0.997;
 echo bcsub($a, $b, 5);
 
-?>
+echo "<br/>";
 
-<script type="text/javascript">
+require_once "../Chapter30_MySQL_API/MySQL_Conn.inc.php";
 
-    function fun(base64) {
-        alert(base64);
-    }
-</script>
+$mysqli = connectZJY();
+
+$result = $mysqli->query("select * from random_table");
+
+var_dump($result);
+
+var_dump($result instanceof mysqli_result);
+
+$ran_num = 0;
+
+$result = $mysqli->query("select ran_num1 into {$ran_num} from random_table where id = (select min(id) from random_table)");
+
+var_dump($result);
+
+var_dump($ran_num);

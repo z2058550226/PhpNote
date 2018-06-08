@@ -24,14 +24,14 @@ if (isset($_POST['action'])) {
     switch ($_POST['action']) {
         case 'restore_log':
             if (isset($_POST['log'])) {
-                $log = $_POST['log'];
+                $log = filter_var($_POST['log'],FILTER_SANITIZE_STRING);
                 $tag = isset($_POST['tag']) ? $_POST['tag'] : 'suikajy';
                 $time = isset($_POST['time']) ? $_POST['time'] : time();
-                $sql = "INSERT INTO android_log (log, tag, create_time) VALUES ('$log', '$tag', '$time')";
+                $sql = "INSERT INTO android_log (`log`, tag, create_time) VALUES ('$log', '$tag', '$time')";
                 $result = mysqli_query($conn, $sql);
                 if (!$result) {
                     $jsonArray['status'] = 0;
-                    $jsonArray['msg'] = '插入log失败';
+                    $jsonArray['msg'] = '插入log失败,result为false,$log为   ' . mysqli_errno($conn) . "   " . $log ;
                 } else {
                     $jsonArray['status'] = 1;
                     $jsonArray['msg'] = '插入log成功';
