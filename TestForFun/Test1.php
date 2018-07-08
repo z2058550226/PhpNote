@@ -66,3 +66,29 @@ $result = $mysqli->query("select ran_num1 into {$ran_num} from random_table wher
 var_dump($result);
 
 var_dump($ran_num);
+
+
+$lista = array(array(array(1, 2, 3), 4, 5, 6), array(array(7, 8, 9), 10, 11, 12), array(array(13, 14, 15), 16, 17, 18));
+
+$listc = array();
+
+function gg($array, &$resultArr)
+{
+    if (is_array($array)) {
+        $hasArray = false;
+        foreach ($array as $subArr) {
+            if (is_array($subArr)) {
+                $hasArray = true;
+                gg($subArr, $resultArr);
+            }
+        }
+        if (!$hasArray) {
+            array_push($resultArr, $array);
+        }
+    }
+}
+
+gg($lista,$listc);
+
+print_r($listc);
+
